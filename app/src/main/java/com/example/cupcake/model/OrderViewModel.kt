@@ -1,5 +1,6 @@
 package com.example.cupcake.model
 
+import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
@@ -77,5 +78,27 @@ class OrderViewModel : ViewModel() {
             calculatedPrice += PRICE_FOR_SAME_DAY_PICKUP
         }
         _price.value = calculatedPrice
+    }
+
+//    fun isVisible(): Int {
+//        return if (_date.value != dateOptions[0]) {
+//            View.VISIBLE
+//        } else {
+//            View.GONE
+//        }
+//    }
+
+    val birthdayCakeIsVisible = Transformations.map(_date) {
+        when (_date.value) {
+            dateOptions[0] -> View.GONE
+            else -> View.VISIBLE
+        }
+    }
+
+    val carrotCakeIsVisible = Transformations.map(_quantity) {
+        when (_quantity.value) {
+            12 -> View.VISIBLE
+            else -> View.GONE
+        }
     }
 }

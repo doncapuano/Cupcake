@@ -86,6 +86,24 @@
                     android:checked="@{viewModel.flavor.equals(@string/coffee)}"
                     android:onClick="@{() -> viewModel.setFlavor(@string/coffee)}"
                     android:text="@string/coffee" />
+
+                <RadioButton
+                    android:id="@+id/birthday_cake"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.birthdayCakeIsVisible}"
+                    android:checked="@{viewModel.flavor.equals(@string/birthday_cake)}"
+                    android:onClick="@{() -> viewModel.setFlavor(@string/birthday_cake)}"
+                    android:text="@string/birthday_cake" />
+
+                <RadioButton
+                    android:id="@+id/carrot_cake"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModel.carrotCakeIsVisible}"
+                    android:checked="@{viewModel.flavor.equals(@string/carrot_cake)}"
+                    android:onClick="@{() -> viewModel.setFlavor(@string/carrot_cake)}"
+                    android:text="@string/carrot_cake" />
             </RadioGroup>
 
             <View
